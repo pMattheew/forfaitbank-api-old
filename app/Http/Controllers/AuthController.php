@@ -24,6 +24,9 @@ class AuthController extends Controller
             [
                 'name' => 'required',
                 'email' => 'required|email|unique:users,email',
+                'address' => 'required',
+                'cpf' => 'required',
+                'birthdate' => 'required',
                 'password' => 'required'
             ]);
 
@@ -38,6 +41,9 @@ class AuthController extends Controller
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
+                'address' => $request->address,
+                'cpf' => $request->cpf,
+                'birthdate' => $request->birthdate,
                 'password' => Hash::make($request->password)
             ]);
 
